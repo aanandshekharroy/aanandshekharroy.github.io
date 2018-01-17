@@ -1,0 +1,67 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: Aanand Shekhar Roy
+email: aanandshekharroy@gmail.com
+description: My address on the web.
+url: https://renyuanz.github.io/leonids # the base hostname & protocol for your site
+keywords: ["Android", "iOS", "Laravel"]
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          Asia/Calcutta
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: Aanand Shekhar Roy
+  avatar: aanandshekharroy.jpg
+  job: "Freelance Android/iOS developer"
+  bio: "Author of Kotlin Progamming Cookbook"
+  email: aanandshekharroy@gmail.com
+  disqus-shortname: aanandshekharroy
+  twitter: aanand_shekhar #username
+  facebook: #username
+  google:
+    plus: #username
+    analytics: UA-112489616-1
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: aanandshekharroy #username
+  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: aanandshekharroy #username
+  xing: #username
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  codepen: #username
+  telegram: #username
