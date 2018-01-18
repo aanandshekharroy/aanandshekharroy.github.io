@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Endless list using Recycler view - Kotlin
+title: Creating web's slot machine a.k.a Infinite list in Android
 excerpt: "Infinite scroll is the most prevalant designs of all times. The reason of it's meteoric rise is that it actually works. In this article, we will learn how to implement one in Android"
 categories: [Kotlin,Android]
 comments: true
@@ -104,7 +104,10 @@ fun updateDataList(dataList: MutableList<Int>) : List<Int> {
   return dataList
 }
 {% endhighlight %}
-
+<a href="https://www.packtpub.com/application-development/kotlin-programming-cookbook">
+  <img src="/img/cookbook.png"/>
+</a>
+*Find this and lot of other recipes written in Kotlin in my book Kotlin Programming Cookbook*
 
 ### Step 5 - Setting up the RecyclerView in the activity
 Let's now create a function which when called, appends 30 data items to an existing list. We are emulating a network call, which brings in an additional data and appends it to an existing data-source.

@@ -1,0 +1,18 @@
+<h1><span data-i18n="skills.my_skills">Testimonials</span></h1>
+
+<div class="archive">
+  <div class="timeline" id="timeline">
+    {% for testimonial in site.data.index.testimonials %}
+          <div class="archive-title">
+            <div class="archive-year">
+
+              <img class="testimonial-image" src="{{testimonial.image}}"/>
+              <strong>{{ testimonial.name }} </strong><br>
+              <i>{{testimonial.bio}}</i>
+              <br>
+              {{ testimonial.message }}
+            </div>
+          </div>
+    {% endfor %}
+  </div>
+</div>
