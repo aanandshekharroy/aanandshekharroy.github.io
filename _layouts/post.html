@@ -38,6 +38,7 @@ layout: default
   <article class="post-content">
     {{ content }}
   </article>
+  <b>Hey, thanks for reading. Would you mind sharing this article if you found it helpful? It would help other people to find it. Also, please checkout <a href="https://www.packtpub.com/application-development/kotlin-programming-cookbook">Kotlin Programming Cookbook </a> which has a lot of useful recipes related to Android, written entirely in Kotlin</b>
 </div>
 {% if page.author %} {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %} {% endif %}
 
@@ -45,7 +46,7 @@ layout: default
   <h6>Share on: </h6>
   <ul>
     <li>
-      <a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ page.url }} via @{{author.twitter}}" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+      <a href="https://twitter.com/intent/tweet?text={{ page.title }} {{ site.url }}{{ page.url }} via @{{author.twitter}}" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
     </li>
     <li>
       <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
@@ -61,6 +62,8 @@ layout: default
     </li>
   </ul>
 </div><!-- end share-buttons -->
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us16.list-manage.com","uuid":"e3d05e9f7b932dbabc53955ed","lid":"c96feebf4f"}) })</script>
 
 {% if site.owner.disqus-shortname and page.comments == true %}
 <div id="disqus_thread"></div>

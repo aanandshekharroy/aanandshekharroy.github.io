@@ -68,7 +68,7 @@ Since we are dealing with only one activity, I am putting the Recycler view in t
 
 ### Step 3 - Creating Recycler view adapter
 To populate data in the recycler view, we will create a recyler view adapter. Here is how it looks:
-##### activity_main.xml
+##### RecyclerAdapter.kt
 
 {% highlight Java %}
 class RecyclerAdapter(val recyclerList: List<Int>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
@@ -91,67 +91,66 @@ class RecyclerAdapter(val recyclerList: List<Int>) : RecyclerView.Adapter<Recycl
 }
 {% endhighlight %}
 
-*This is emphasized*. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H2O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times (That’s a citation). Underline.Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
 
-HTML and CSS are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.
+### Step 4 - Create function that provides data
+Let's now create a function which when called, appends 30 data items to an existing list. We are emulating a network call, which brings in an additional data and appends it to an existing data-source.
 
-### Blockquotes
 
-> Lorem ipsum dolor sit amet, test link adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.
-
-## List Types
-
-### Ordered Lists
-
-1. Item one
-   1. sub item one
-   2. sub item two
-   3. sub item three
-2. Item two
-
-### Unordered Lists
-
-* Item one
-* Item two
-* Item three
-
-## Tables
-
-| Header 1 | Header 2 | Header 3 |
-|:--------|:-------:|--------:|
-| cell 1   | cell 2   | cell 3   |
-| cell 4   | cell 5   | cell 6   |
-|----
-| cell 1   | cell 2   | cell 3   |
-| cell 4   | cell 5   | cell 6   |
-|=====
-| Foot 1   | Foot 2   | Foot 3   |
-
-## Code Snippets
-
-{% highlight css %}
-#container {
-  float: left;
-  margin: 0 -240px 0 0;
-  width: 100%;
+{% highlight Java %}
+fun updateDataList(dataList: MutableList<Int>) : List<Int> {
+  kotlin.repeat(30) {
+    dataList.add(dataList.size + 1)
+  }
+  return dataList
 }
 {% endhighlight %}
 
-## Buttons
 
-Make any link standout more when applying the `.btn` class.
+### Step 5 - Setting up the RecyclerView in the activity
+Let's now create a function which when called, appends 30 data items to an existing list. We are emulating a network call, which brings in an additional data and appends it to an existing data-source.
 
-{% highlight html %}
-<a href="#" class="btn btn-success">Success Button</a>
+
+{% highlight Java %}
+class MainActivity : AppCompatActivity() {
+  val dataList = mutableListOf<Int>()
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    val layoutManager = LinearLayoutManager(this)
+    val adapter = RecyclerAdapter(recyclerList =
+      updateDataList(dataList))
+    recyclerView.layoutManager = layoutManager
+    recyclerView.adapter = adapter
+    recyclerView.addOnScrollListener(object :
+        RecyclerView.OnScrollListener() {
+          override fun onScrolled(recyclerView: RecyclerView, dx:
+            Int, dy: Int) {
+              super.onScrolled(recyclerView, dx, dy)
+              if (!recyclerView.canScrollVertically(1)) {
+                onScrolledToBottom();
+              }
+            }
+            fun onScrolledToBottom() {
+              val initialSize = dataList.size
+              updateDataList(dataList)
+              val updatedSize = dataList.size
+              adapter.notifyItemRangeInserted(initialSize,updatedSize)
+            }
+            })
+          }
+        }
 {% endhighlight %}
 
-<div markdown="0"><a href="#" class="btn">Primary Button</a></div>
-<div markdown="0"><a href="#" class="btn btn-success">Success Button</a></div>
-<div markdown="0"><a href="#" class="btn btn-warning">Warning Button</a></div>
-<div markdown="0"><a href="#" class="btn btn-danger">Danger Button</a></div>
-<div markdown="0"><a href="#" class="btn btn-info">Info Button</a></div>
+Since we have to intercept when the user has reached the bottom of the list, we have added
+a *ScrollListener* . We have overridden the *onScroll* method, and we are using
+the *canScrollVertically* method. The *canScrollVertically* method was added in
+API level 14, and it is used to check whether this view can be scrolled vertically in a certain
+direction. It takes an integer argument (negative to check scrolling up and positive to check
+scrolling down) and returns a boolean ( true if possible, false if not). In our example, we
+have supplied a positive integer, which will return true if the view can be scrolled down
+and false if it can't be. If it can't be further scrolled down (meaning that the data is
+exhausted), we will add data to the list and update the list by calling
+the *notifyItemRangeInserted* method of the adapter.
 
-## Notices
-
-**Watch out!** You can also add notices by appending `{: .notice}` to a paragraph.
-{: .notice}
+##### Checkout the full source code in the below link:
+[Source code](https://gitlab.com/aanandshekharroy/Anko-examples/tree/6-endless-list-using-recycler-view) .
