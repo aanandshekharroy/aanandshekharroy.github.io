@@ -8,8 +8,7 @@ image:
   feature: rxJava.png
 ---
 
-To understand Flowables, we need to understand Observables first. Observables are those entities which we observe for any event. Observables are used when we have relatively few items over the time and there is no risk of overflodding consumers.
-If there is a possiblity that the consumer can be overflodded, then we use Flowable. One example could be getting huges amount of data from a sensor. They typically psh out data at a high rate. In previous version of RxJava, this overflooding could be prevented by applying backpressure. But in RxJava 2, the development team has separated these two kind of producers into two entities. i.e. Observale and Flowables. According to documentation:
+To understand Flowables, we need to understand Observables first. Observables are those entities which we observe for any event. Observables are used when we have relatively few items over the time and there is no risk of overflooding consumers. If there is a possibility that the consumer can be overflooded, then we use Flowable. One example could be getting a huges amount of data from a sensor. They typically push out data at a high rate. In the previous version of RxJava, this overflooding could be prevented by applying back pressure. But in RxJava 2, the development team has separated these two kinds of producers into two entities. i.e. Observable and Flowable. According to documentation:
 
 
 >    A small regret about introducing backpressure in RxJava 0.x is that instead of having a separate >    base reactive class, the Observable itself was retrofitted. The main issue with backpressure is >    that many hot sources, such as UI events, can't be reasonably backpressured and cause unexpected >    MissingBackpressureException (i.e., beginners don't expect them).
@@ -87,7 +86,7 @@ There are a lot of other backpressuring strategy which we will cover now:
   observable.toFlowable(BackpressureStrategy.MISSING).onBackpressureLatest()
   ```
 
-  Another variant that is most commonly used in Android world is *debounce*. This is generally used on button clicks where we don't want users to continously press the button while the action of button press is processed. Think of 'Sign in' button, when user clicks on it, we make a network request to the server. We don't want the users to continously keep pressing the button.
+  Another variant that is most commonly used in the Android world is debounce. This is generally used on button clicks where we don’t want users to continuously press the button while the action of the button press is processed. Think of ‘Sign in’ button, when a user clicks on it, we make a network request to the server. We don’t want the users to continuously keep pressing the button.
   Using the debounce, it takes the last value after a specified time. In the below example, it takes the last value emitted after 1 second:
   ```
   observable.toFlowable(BackpressureStrategy.MISSING).debounce(1000,TimeUnit.MILLISECONDS)
