@@ -26,10 +26,23 @@
 
   <!-- Open Graph Tags -->
   <meta property="og:type" content="blog">
+  {% if page.post_url %}
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% else %}
   <meta property="og:url" content="{{ site.url }}">
+  {% endif %}
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
-  <meta property="og:image" content="{{ site.url }}/img/{{page.image.feature}}"/>
+
+  {% if page.image.feature %}
+
+{% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+<meta property="og:image" content= "{{ page.image.feature }}"/>
+{% else %}
+<meta property="og:image" content="{{ site.url }}/img/{{page.image.feature}}"/>
+{% endif %}
+  {% endif %}
+
   <title>{{ title }}</title>
 
   <!-- CSS files -->
