@@ -1,7 +1,7 @@
 ---
 layout: post
 title: RxJava - Flowables - What, when and how to use it?
-excerpt: "World is moving towas event-driven programming. This provides us a way around of polling. The basic concept of Event driven programming is that you observe a resource(called observable), and when the data is ready, the observable notifies the observer. In this article, we will discuss Flowable, which is quite like observable, but has a different purpose."
+excerpt: "World is moving towards event-driven programming. This provides us a way around of polling. The basic concept of Event driven programming is that you observe a resource(called observable), and when the data is ready, the observable notifies the observer. In this article, we will discuss Flowable, which is quite like observable, but has a different purpose."
 categories: [RxJava,Android]
 comments: true
 image:
