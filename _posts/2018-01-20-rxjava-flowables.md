@@ -8,7 +8,6 @@ image:
   feature: rxJava.png
 ---
 
-60180083710-ltpq3q2sf9nogn7nj49i3r5pjoei076u.apps.googleusercontent.com
 To understand Flowables, we need to understand Observables first. Observables are those entities which we observe for any event. Observables are used when we have relatively few items over the time and there is no risk of overflodding consumers.
 If there is a possiblity that the consumer can be overflodded, then we use Flowable. One example could be getting huges amount of data from a sensor. They typically psh out data at a high rate. In previous version of RxJava, this overflooding could be prevented by applying backpressure. But in RxJava 2, the development team has separated these two kind of producers into two entities. i.e. Observale and Flowables. According to documentation:
 
