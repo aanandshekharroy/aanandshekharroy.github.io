@@ -77,6 +77,8 @@ val	pooledScheduler	=	Schedulers.from(executor);
 ```
 AndroidSchedulers.mainThread()
 ```
+Also,feel free to checkout Scheduler's documentation on the link:
+<a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/schedulers/Schedulers.html#computation">Schedulers Documentation</a>
 
 <a href="https://www.packtpub.com/application-development/kotlin-programming-cookbook">
   <img src="/img/cookbook.png"/>
