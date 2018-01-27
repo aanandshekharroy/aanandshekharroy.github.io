@@ -36,10 +36,6 @@ observable.subscribeOn(Schedulers.computation())
 observable.subscribeOn(Schedulers.single())
 ```
 
-* **Immediate** - This scheduler just starts the task in a blocking way on the current thread that is active, disregarding which process is currently running. It is available as:
-```
-observable.subscribeOn(Schedulers.immediate())
-```
 
 
 * **Trampoline** - This scheduler runs the code on current thread. So if you have a code running on the main thread, this scheduler will add the code block on the queue of main thread. It is quite similar to *Immediate* Scheduler as it also blocks the thread, however, it waits for the current task to execute completely(while *Immediate* Scheduler invokes the task right away). Trampoline schedulers come in handy when we have more than one observable and we want them to execute in order.
@@ -64,10 +60,12 @@ observable.subscribeOn(Schedulers.immediate())
     Number = 9
  ```
 
+
  It is available as:
 ```
 observable.subscribeOn(Schedulers.trampoline())
 ```
+>Immediate scheduler ( present in RxJava 1), just starts the task in a blocking way on the current thread that is active, disregarding which process is currently running
 
 * **Executor Scheduler** - This is more of a custom IO Scheduler. In this scheduler, we can create a custom pool of threads by specifying the size of pool. This can be used in scenarios where number of observables could be huge for IO Schedulers. Below is an example of Executor Scheduler:
 ```
