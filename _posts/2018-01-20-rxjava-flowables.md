@@ -55,9 +55,7 @@ Queue is full?!
 ```
 This is because we haven't specified any BackpressureStrategy, so it falls back to default which basically buffers upto 128 items in the queue. Hence the output *Queue is full*
 
-<a href="https://www.packtpub.com/application-development/kotlin-programming-cookbook">
-  <img src="/img/cookbook.png"/>
-</a>
+
 
 There are a lot of other backpressuring strategy which we will cover now:
 * **Dropping** : What do you do when you can't handle too many things? You drop it. This Backpressuring strategy does the exact same thing. It drops the items if it can't handle more than it's capacity i.e. 128 items (size of buffer)

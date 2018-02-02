@@ -5,21 +5,14 @@ layout: default
 <a class="btn" href= "{{ site.url }}/" >
   Home
 </a>
-{% if page.image.feature %}
-<div class="post-image-feature">
-  <img class="feature-image" src=
-  {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
-  "{{ page.image.feature }}"
-  {% else %}
-  "{{ site.url }}/img/{{ page.image.feature }}"
-  {% endif %}
-  alt="{{ page.title }} feature image">
-
-  {% if page.image.credit %}
-  <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-  {% endif %}
-</div><!-- /.image-wrap -->
-{% endif %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=1017422325020049&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 <div id="post">
@@ -34,11 +27,33 @@ layout: default
     </span>
 
   </header>
+  {% if page.image.feature %}
+  <div class="post-image-feature">
+    <img  src=
+    {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+    "{{ page.image.feature }}"
+    {% else %}
+    "{{ site.url }}/img/{{ page.image.feature }}"
+    {% endif %}
+    alt="{{ page.title }} feature image">
 
+    {% if page.image.credit %}
+    <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+    {% endif %}
+  </div><!-- /.image-wrap -->
+  {% endif %}
   <article class="post-content">
     {{ content }}
   </article>
 
+  <div class="fb-page" data-href="https://www.facebook.com/pg/Advanced-Android-Development-1940714176257012/about/?ref=page_internal"
+  data-small-header="true" data-adapt-container-width="true"
+  data-hide-cover="false" data-show-facepile="true">
+  <blockquote cite="https://www.facebook.com/pg/Advanced-Android-Development-1940714176257012/about/?ref=page_internal"
+  class="fb-xfbml-parse-ignore">
+  <a href="https://www.facebook.com/pg/Advanced-Android-Development-1940714176257012/about/?ref=page_internal">Advanced Android Development</a>
+</blockquote>
+</div>
 
   <h3 >
     I am making a new course for you on Advanced Android Development and I’d love your input.
