@@ -1,14 +1,14 @@
 ---
 layout: default
-home-title: H2O Theme For Jekyll
-description: 或许是最漂亮的Jekyll主题
+home-title: Aanand Shekhar Roy
+description: Freelance Android/iOS developer, Author of Kotlin Programming Cookbook
 ---
 
 {% include header.html %}
 
 <div class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}" data-theme="{{ site.theme-color }}">
     <h2>{{ page.home-title }}</h2>
-    <h3>{{ page.description }}</h3>
+    <h4>{{ page.description }}</h4>
     {% if page.header-img %}
     <img class="header-img" src="{{ page.header-img | prepend: site.baseurl }}" alt="">
     {% endif %}

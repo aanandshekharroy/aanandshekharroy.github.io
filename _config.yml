@@ -26,7 +26,7 @@ avatar: '/assets/img/aanandshekharroy.jpg'
 search: false
 
 # Night mode
-nightMode: true
+nightMode: false
 
 # Comments
 disqus: true
@@ -53,6 +53,7 @@ sns:
   email: 'mailto:aanandshekharroy@gmail.com'
   linkedin: 'https://www.linkedin.com/in/aanandshekharroy/'
   github: 'https://github.com/aanandshekharroy'
+  twitter: 'https://twitter.com/aanand_shekhar'
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
@@ -67,14 +68,13 @@ exclude: ['node_modules','_site', 'dev', 'package.json', 'gulpfile.js', '.gitign
 markdown: kramdown
 highlighter: rouge
 #kramdown:
-#  input: GFM
+  #input: GFM
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
   enable_coderay: false
-
 # RSS
 RSS: false
 

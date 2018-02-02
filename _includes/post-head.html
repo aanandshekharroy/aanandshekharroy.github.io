@@ -10,6 +10,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.url | prepend: site.url }}">
     <meta property="og:description" content="{{ site.description }}">
+    {% if page.cover %}
+      {% if page.cover contains 'https' or page.cover contains 'http' %}
+        <meta property="og:image" content= "{{ page.cover }}"/>
+      {% else %}
+        <meta property="og:image" content="{{ site.url }}{{page.cover}}"/>
+      {% endif %}
+    {% else %}
+    <meta property="og:image" content="{{ site.url }}aanandshekharroy.jpg"/>
+    {% endif %}
     <meta property="og:site_name" content="{{ site.title }}">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">

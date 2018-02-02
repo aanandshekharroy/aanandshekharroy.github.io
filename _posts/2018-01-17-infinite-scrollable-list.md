@@ -12,7 +12,7 @@
 Infinite scroll is the most prevalant designs of all times. The reason of it's meteoric rise is that it actually works. In this article, we will learn how to implement one in Android.
 I'll be creating a very simple app like the below gif. It scrolls upto few number, then fetches another set of data and then is scrollable again. Checkout the below the gif:
 
-![Infinite scroll gif](/img/infinite-scroll.gif)
+![Infinite scroll gif](/assets/img/infinite-scroll.gif)
 
 Let's go through the below steps to create this app:
 
@@ -104,7 +104,7 @@ fun updateDataList(dataList: MutableList<Int>) : List<Int> {
 }
 {% endhighlight %}
 <a href="https://www.packtpub.com/application-development/kotlin-programming-cookbook">
-  <img src="/img/cookbook.png"/>
+  <img src="/assets/img/cookbook.png"/>
 </a>
 *Find this and lot of other recipes written in Kotlin in my book Kotlin Programming Cookbook*
 
