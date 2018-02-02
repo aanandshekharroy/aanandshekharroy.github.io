@@ -1,116 +1,147 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+{% include post-head.html %}
 
-<a class="btn" href= "{{ site.url }}/" >
-  Home
-</a>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=1017422325020049&autoLogAppEvents=1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<body>
+  <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a74990810fe560012c5e86e&product=sticky-share-buttons"></script>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="{{ site.nightMode }}"> {% include header.html %}
 
-
-<div id="post">
-  <header class="post-header">
-    <h1 title="{{ page.title }}">{{ page.title }}</h1>
-    <span class="post-meta">
-      <span class="post-date">
-        {{ page.date | date: "%-d %b %Y" | upcase }}
-      </span>
-      •
-      {% include read_time.html %}
-    </span>
-
+  <header class="g-banner post-header {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }} {% unless page.cover %}post-no-cover{% endunless %}" data-theme="{{ site.theme-color }}">
+    <div class="post-wrapper">
+      <div class="post-tags">
+        {% if page.tags.size > 0 %}
+          {% for tag in page.tags  %}
+            <a href="{{ "tags#" | append: tag | absolute_url }}" class="post-tag">{{ tag }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="{{ site.url }}" target="_blank" rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a></></span>
+        <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+      </div>
+    </div>
+    {% if page.cover %}
+    <div class="filter"></div>
+    <div class="post-cover" style="background: url('{{ page.cover }}') center no-repeat; background-size: cover;">
+      {% endif %}
   </header>
-  {% if page.image.feature %}
-  <div class="post-image-feature">
-    <img  src=
-    {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
-    "{{ page.image.feature }}"
-    {% else %}
-    "{{ site.url }}/img/{{ page.image.feature }}"
-    {% endif %}
-    alt="{{ page.title }} feature image">
 
-    {% if page.image.credit %}
-    <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+  <div class="post-content visible">
+    {% if page.subtitle %}
+    <h2 class="post-subtitle">{{ page.subtitle }}</h2>
     {% endif %}
-  </div><!-- /.image-wrap -->
-  {% endif %}
-  <article class="post-content">
-    {{ content }}
-  </article>
-<div class="row">
-  <div class="col-sm-5">
-      <div class="fb-page" data-href="https://www.facebook.com/pg/Advanced-Android-Development-1940714176257012/about/?ref=page_internal"
-      data-small-header="true" data-adapt-container-width="true"
-      data-hide-cover="false" data-show-facepile="true">
-      <blockquote cite="https://www.facebook.com/pg/Advanced-Android-Development-1940714176257012/about/?ref=page_internal"
-      class="fb-xfbml-parse-ignore">
-      <a href="https://www.facebook.com/pg/Advanced-Android-Development-1940714176257012/about/?ref=page_internal">Advanced Android Development</a>
-    </blockquote>
+
+    <article class="markdown-body">
+      {{ page.content }}
+    </article>
+
+
+    <div class="social-share-wrapper">
+
     </div>
-  </div>
-  <br>
-
-  <div class="col-sm-5">
-    <a href="https://twitter.com/aanand_shekhar?ref_src=twsrc%5Etfw"
-    class="twitter-follow-button" data-size="large" data-show-count="true">Follow @aanand_shekhar</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   </div>
 
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="{{ site.avatar | absolute_url }}" alt="">
+      </div>
+      <div class="author-name" rel="author">{{ site.author }}</div>
+      <div class="bio">
+        <a href="https://twitter.com/aanand_shekhar?ref_src=twsrc%5Etfw"
+        class="twitter-follow-button" data-size="large" data-show-count="false">Follow @aanand_shekhar</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <p>{{ site.bio }}</p>
+      </div>
+      {% if site.sns.size > 0 %}
+      <ul class="sns-links">
+        {% for s in site.sns %}
+        <li>
+          <a href="{{ s[1] }}" target="_blank">
+                    <i class="iconfont icon-{{ s[0] }}"></i>
+                </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </section>
+    <section class="post-footer-item read-next">
+      {% if page.next.url %}
+      <div class="read-next-item">
+        <a href="{{ page.next.url }}" class="read-next-link"></a>
+        <section>
+          <span>{{ page.next.title }}</span>
+          <p>{{ page.next.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+        </section>
+        {% if page.next.cover %}
+        <div class="filter"></div>
+        <img src="{{ page.next.cover }}" alt="">
+        {% endif %}
+     </div>
+      {% endif %}
 
-</div>
+      {% if page.previous.url %}
+      <div class="read-next-item">
+        <a href="{{ page.previous.url }}" class="read-next-link"></a>
+          <section>
+            <span>{{ page.previous.title }}</span>
+            <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+          </section>
+          {% if page.previous.cover %}
+          <div class="filter"></div>
+          <img src="{{ page.previous.cover }}" alt="">
+          {% endif %}
+      </div>
+      {% endif %}
+    </section>
+
+    {% if site.disqus %}
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+    {% endif %}
+
+    {% if site.livere %}
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="{{ site.livere_uid }}">
+    </section>
+    {% endif %}
+  </section>
+
+  {% include footer.html %}
 
 
+{% if site.disqus %}
+  <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document,
+        s = d.createElement('script');
+      /*写入自己的disqus信息*/
+      s.src = '{{ site.disqus_url }}';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
 
-
-  <h3 >
-    I am making a new course for you on Advanced Android Development and I’d love your input.
-    Just click below to answer 5 very short questions. It only takes 1 minute.</h3>
-    <div class="center">
-      <a class="btn" href="https://goo.gl/forms/7sLk5CVAoYoP058u2">
-        Click here
-      </a>
-    </div>
-  <h3>  P.S. Check out the bonus question if you’d like an early access (It's already 15% complete!).
-  </h3>
-
-
-
-</div>
-{% if page.author %} {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %} {% endif %}
-
-<div class="share-buttons">
-  <h6>Share on: </h6>
-  <ul>
-    <li>
-      <a href="https://twitter.com/intent/tweet?text={{ page.title }} {{ site.url }}{{ page.url }} via @{{author.twitter}} " class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
-    </li>
-    <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
-    </li>
-    <li>
-      <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
-    </li>
-    <li>
-      <a href="https://news.ycombinator.com/submitlink?u={{ site.url }}{{ page.url }}" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
-    </li>
-    <li>
-      <a href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
-    </li>
-  </ul>
-</div><!-- end share-buttons -->
-<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-<script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us16.list-manage.com","uuid":"e3d05e9f7b932dbabc53955ed","lid":"c96feebf4f"}) })</script>
-
-{% if site.owner.disqus-shortname and page.comments == true %}
-<div id="disqus_thread"></div>
-{% include disqus.html %}
+</script>
 {% endif %}
+
+  <noscript>为正常使用评论功能请激活JavaScript。</noscript>
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>

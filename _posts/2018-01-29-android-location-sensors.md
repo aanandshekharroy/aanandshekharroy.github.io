@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Know your sensors - Android Location Services
-excerpt: "Location services on handheld devices has transformed this world. Several billion dollar companies like Uber exist because of it. Location services provide contextual information keeping in mind your current location. It could be search results, place recommendations, restaurants near you etc. "
-categories: [Android]
+title: 'Know your sensors - Android Location Services'
+date: 2018-01-29
+author: Aanand Shekhar Roy
+cover: '/assets/img/location.png'
+tags: Android
 comments: true
 post_url: android-location-services
-image:
-  feature: location.png
 ---
 Location services on handheld devices have transformed this world. Several billion dollar companies like Uber exist because of it. Location services provide contextual information keeping in mind your current location. It could be search results, place recommendations, restaurants near you etc.
 We call this facility Android Location Services, which consists of different location providers and they have their own strengths and weakness. In this blog, we will assess the types of location providers that are present in Android Location Service and will look at the scenarios when one should be used over other.
@@ -74,6 +74,6 @@ Since Passive location provider is not guaranteed to receive any location update
 
 You can also control the ways by which Google location service determines your location. Checkout the below image of location setting:  
 
-![Location Settings](/img/sensor_settings.jpeg)
+![Location Settings](/assets/img/sensor_settings.jpeg)
 
 In the next few articles, I will go through the implementation of these location providers.

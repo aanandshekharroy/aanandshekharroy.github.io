@@ -1,12 +1,12 @@
 ---
 layout: post
-title: RxJava - Flowables - What, when and how to use it?
-excerpt: "World is moving towards event-driven programming. This provides us a way around of polling. The basic concept of Event driven programming is that you observe a resource(called observable), and when the data is ready, the observable notifies the observer. In this article, we will discuss Flowable, which is quite like observable, but has a different purpose."
-categories: [RxJava,Android]
+title: 'RxJava - Flowables - What, when and how to use it?'
+date: 2018-01-26
+author: Aanand Shekhar Roy
+cover: '/assets/img/rxJava.png'
+tags: RxJava Android
 comments: true
 post_url: rxjava-flowables
-image:
-  feature: rxJava.png
 ---
 
 To understand Flowables, we need to understand Observables first. Observables are those entities which we observe for any event. Observables are used when we have relatively few items over the time and there is no risk of overflooding consumers. If there is a possibility that the consumer can be overflooded, then we use Flowable. One example could be getting a huge amount of data from a sensor. They typically push out data at a high rate. In the previous version of RxJava, this overflooding could be prevented by applying back pressure. But in RxJava 2, the development team has separated these two kinds of producers into two entities. i.e. Observable and Flowable. According to documentation:

@@ -1,12 +1,12 @@
 ---
 layout: post
-title: RxJava - Schedulers - What, when and how to use it?
-excerpt: "Schedulers are one of the main componenets in RxJava. They are responsible for performing operations of Observable on different threads."
-categories: [RxJava,Android]
+title: 'RxJava - Schedulers - What, when and how to use it?'
+date: 2018-01-26
+author: Aanand Shekhar Roy
+cover: '/assets/img/rxJava.png'
+tags: RxJava Android
 comments: true
 post_url: rxjava-schedulers
-image:
-  feature: rxJava.png
 ---
 Schedulers are one of the main components in RxJava. They are responsible for performing operations of Observable on different threads. They help to offload the time-consuming onto different threads.
 In this post we will learn the types of schedulers and when to use the different types.

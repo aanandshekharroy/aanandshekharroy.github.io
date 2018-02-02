@@ -1,30 +1,35 @@
 ---
-layout: page
-title:  Tags
-permalink: /tags/
+title: Tags
+layout: default
 ---
 
-<h5>Tag cloud <i class="fa fa-cloud info-text-color"></i></h5>
-<ul class="tag-cloud">
-{% for tag in site.tags %}
-  <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
-    <a class="post-tag" href="#{{ tag | first | slugize }}">
-      {{ tag | first }}
-    </a>
-  </li>
-{% endfor %}
-</ul>
+{% include header.html %}
 
-<div class="tag-list">
-{% for tag in site.tags %}
-  <div class="tag-group">
-    {% capture tag_name %}{{ tag | first }}{% endcapture %}
-    <h5 class="tag-group-title" id="{{ tag_name | slugize }}">{{ tag_name }}</h5>
-    {% for post in site.tags[tag_name] %}
-    <article class="tag-item">
-      <a class="tag-item-title" href="{{ site.url }}{{ post.url }}">{{post.title}}</a>
-    </article>
-    {% endfor %}
-  </div>
-{% endfor %}
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
+    <h2>TAGS</h2>
 </div>
+
+<main class="tags-content">
+
+    <ul class="tags-list">
+        <li>
+        {% if site.recommend-tags and site.tags.size>0 %}
+            {% for tag in site.tags %}
+            <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
+            {% endfor %}
+        {% endif %}
+        </li>
+        {% for tag in site.tags %}
+        <li>
+            <span class="tag-name" id="{{ tag[0] }}">「{{ tag[0] }}」</span>
+            {% for post in tag[1] %}
+            <a class="tag-post" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            {% endfor %}
+        </li>
+        
+        </div>
+        {% endfor%}
+    </ul>
+</main>
+    
+{% include footer.html %}
