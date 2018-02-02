@@ -25,11 +25,9 @@ layout: default
             {% for post in tag[1] %}
             <a class="tag-post" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
             {% endfor %}
-        </li>
-        
-        </div>
+        </li>        
         {% endfor%}
     </ul>
 </main>
-    
+
 {% include footer.html %}
