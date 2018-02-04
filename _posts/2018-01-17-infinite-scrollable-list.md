@@ -89,7 +89,7 @@ class RecyclerAdapter(val recyclerList: List<Int>) : RecyclerView.Adapter<Recycl
   }
 }
 {% endhighlight %}
-
+{% include mailchimp_subscribe.html %}
 
 ### Step 4 - Create function that provides data
 Let's now create a function which when called, appends 30 data items to an existing list. We are emulating a network call, which brings in an additional data and appends it to an existing data-source.

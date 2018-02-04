@@ -37,7 +37,7 @@ observable.subscribeOn(Schedulers.computation())
 observable.subscribeOn(Schedulers.single())
 ```
 
-
+{% include mailchimp_subscribe.html %}
 
 * **Trampoline** - This scheduler runs the code on current thread. So if you have a code running on the main thread, this scheduler will add the code block on the queue of main thread. It is quite similar to *Immediate* Scheduler as it also blocks the thread, however, it waits for the current task to execute completely(while *Immediate* Scheduler invokes the task right away). Trampoline schedulers come in handy when we have more than one observable and we want them to execute in order.
 

@@ -45,7 +45,7 @@ Or
 * Since the provider needs wifi signals to determine the location, the Wi-Fi networks must be in range.
 * Some access points have SSIDs that ends in *_nomap* so their information will not be sent to the location service.
 * The Google location services determines the location from Wifi by creaking a network map, so if the location of wifi is changed, the service will determine the wrong location unless other connected devices confirm this change.
-
+{% include mailchimp_subscribe.html %}
 #### Cell IDs
 Android can also use cellular network (in a similar way as Wi-Fi access points), to determine the location of the device.
 This provider works only if the device is connected with a cell tower. The device knows the unique ID of the cell tower and also the IDs of previous towers it was connected to, and based on that,  the Google location service determines the location.

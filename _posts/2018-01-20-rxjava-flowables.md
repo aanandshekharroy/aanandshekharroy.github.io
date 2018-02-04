@@ -33,6 +33,7 @@ The below code is a perfect example of that:
     }
 ```
 In these scenarios, we need **backpressuring** , which in simple words is just a way to handle the items that can't be processed. In the below code, we will handle the case using Flowable:
+
 ```
 val observable = PublishSubject.create<Int>()
     observable
@@ -70,7 +71,7 @@ There are a lot of other backpressuring strategy which we will cover now:
   ```
   observable.toFlowable(BackpressureStrategy.MISSING).onBackpressureDrop()  
   ```
-
+{% include mailchimp_subscribe.html %}
 * **Preserve the last item** : If the producer sees that the downstream can't cope up with the flow of items, it stops emitting it and waits till it becomes available. In the mean time, it keeps dropping
  the items except the last one that arrived and sends the last one when the downstream is available again.
 
