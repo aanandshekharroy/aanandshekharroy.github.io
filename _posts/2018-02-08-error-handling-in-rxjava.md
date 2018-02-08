@@ -1,14 +1,15 @@
 ---
 layout: post
-title: 'Error handling in RxJava'
+title: 'Error handling in RxJava/RxKotlin'
 date: 2018-02-08
 author: Aanand Shekhar Roy
 cover: '/assets/img/error-handling.jpg'
-tags: Android RxJava
+tags: Android RxJava Kotlin
 comments: true
 post_url: error-handling-in-rxjava
 ---
-If you've worked with RxJava, you might be familiar with three methods of a subscriber. *onNext* , *onError* and *onComplete*. In a reactive stream, elements are consumed by *onNext* first, and *onComplete* is called when the stream ends. If you encounter any error in *onNext*, the complete observable chain is abandoned and control is shifted to *onError* method. So for example, the below code will run perfectly and will provide the output as:
+If you've worked with RxJava/RxKotlin, you might be familiar with three methods of a subscriber. *onNext* , *onError* and *onComplete*. In a reactive stream, elements are consumed by *onNext* first, and *onComplete* is called when the stream ends. If you encounter any error in *onNext*, the complete observable chain is abandoned and control is shifted to *onError* method. So for example, the below code will run perfectly and will provide the output as:
+
 ``` java
 Observable.fromArray(1,2,3,4)
   .subscribeBy(
@@ -126,6 +127,7 @@ Observable.fromArray(1,2,3)
 Doing on error
 Exception on 2
 ```  
+{% include mailchimp_subscribe.html %}
 So as you can see, the block *doOnError* was run before the *onError* of the observer. So it's a great place to do some stuff incase you are about to receive an error. This could include showing toast message or snackbar informing about error.  
 ### onErrorReturnItem
 As the name suggests, it just returns a value if an error is encountered. Let's see the below example:
@@ -203,7 +205,7 @@ Observable.fromArray(1,2,3)
         }
 )
 ```
-Output
+**Output:**
 ```
 1
 1
