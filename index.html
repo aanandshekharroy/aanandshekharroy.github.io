@@ -12,6 +12,19 @@ description: Freelance Android/iOS developer, Author of Kotlin Programming Cookb
     {% if page.header-img %}
     <img class="header-img" src="{{ page.header-img | prepend: site.baseurl }}" alt="">
     {% endif %}
+    <section class="author-card">
+    {% if site.sns.size > 0 %}
+    <ul id="sns-links" class="sns-links">
+        {% for s in site.sns %}
+        <li>
+            <a href="{{ s[1] }}" target="_blank">
+                <i class="iconfont icon-{{ s[0] }}"></i>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
 </div>
 
 <main class="g-container home-content">
