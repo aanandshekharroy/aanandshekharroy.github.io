@@ -71,7 +71,6 @@ There are a lot of other backpressuring strategy which we will cover now:
   ```
   observable.toFlowable(BackpressureStrategy.MISSING).onBackpressureDrop()  
   ```
-{% include mailchimp_subscribe.html %}
 * **Preserve the last item** : If the producer sees that the downstream can't cope up with the flow of items, it stops emitting it and waits till it becomes available. In the mean time, it keeps dropping
  the items except the last one that arrived and sends the last one when the downstream is available again.
 
