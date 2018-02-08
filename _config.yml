@@ -16,7 +16,7 @@ nav:
 footer:
   since: 2017
 
-# Author 配置博主信息
+# Author
 author: 'Aanand Shekhar Roy'
 nickname: 'Aanand'
 bio: 'Freelance Android/iOS developer, Author of Kotlin Programming Cookbook'
@@ -67,14 +67,14 @@ exclude: ['node_modules','_site', 'dev', 'package.json', 'gulpfile.js', '.gitign
 # Markdown
 markdown: kramdown
 highlighter: rouge
-#kramdown:
-  #input: GFM
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+  input: GFM
+# kramdown:
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   enable_coderay: false
 # RSS
 RSS: false
 
