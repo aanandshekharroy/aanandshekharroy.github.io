@@ -64,5 +64,27 @@ In case of XML files:
             android:id="@+id/avatar_url"
             tools:ignore="HardcodedText"
 ```
+ 
+ Remember a few minutes ago we said that lint tool makes use of `lint.xml` configuration file? You can create your own `lint.xml` file and set rules according to your needs. In the below example, we have created our `lint.xml` file and set a rule to ignore `missing contentDescription` warning.
+ ```
+ <?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- Disable the given check in this project -->
+    <issue id="ContentDescription" severity="ignore" />
+</lint>
+```
+After that, you need to put the reference in the gradle file as:
+```
+lintOptions {
+        lintConfig file("lint.xml")
+    }
+```
+
+Note that in the above case, lint rules you specify in the `lint.xml` applies to the entire module. If you want to specify it for specific path, you can do so as:
+```
+<issue id="ContentDescription" severity="ignore">
+  <ignore path="src/main/res/values/list_item.xml" />
+</issue>
+```
 
 So that's it! Go ahead and use this awesome tool in your next project and make a step towards quality code. For more information, feel free to visit this link [Lint](https://developer.android.com/studio/write/lint)
