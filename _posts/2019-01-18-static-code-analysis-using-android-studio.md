@@ -3,7 +3,7 @@
   title: "Using static code analysis tool in Android Studio"
   date: 2019-01-18
   author: Aanand Shekhar Roy
-  cover: 'https://cdn.pixabay.com/photo/2015/05/11/13/28/software-762486_960_720.jpg'
+  cover: 'https://pixabay.com/get/ee33b30b20f21c22d9584518a33219c8b66ae3d01db618479df2c37c/software-762486_1920.jpg'
   tags: Android-Studio Android
   comments: true
   post_url: static-code-analysis-using-android-studio
