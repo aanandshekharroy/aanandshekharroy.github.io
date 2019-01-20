@@ -9,14 +9,16 @@
   post_url: static-code-analysis-using-android-studio
 ---
 
-Static analysis (or static code analysis) is an analysis run on the source code, against some set rules, even before the program runs (usually even before the unit tests). This is a kind of debugging that is done without even running the program and this is usually the first step taken towards code-analysis. Since the analysis is run against some set rules, it also helps to maintain coding convetions among dev team.
-You could definitey do it manually during code-review process, but human errors would creep in and it will not be as effective or efficient. To deal with this, we now have some amazing automated tools like lint, which now comes embedded in Android studio that we can use. In this blog post we are going to make use of such tool and will iterate upon an Androrid project as a demonstration.
+Static analysis (or static code analysis) is an analysis run on the source code, against some set rules, even before the program runs (usually even before the unit tests). This is a kind of debugging that is done without even running the program and this is usually the first step taken towards code-analysis. Since the analysis is run against some set rules, it also helps to maintain coding conventions among dev team.
+You could definitely do it manually during code-review process, but human errors would creep in and it will not be as effective or efficient. To deal with this, we now have some amazing automated tools like lint, which now comes embedded in Android studio that we can use. In this blog post we are going to make use of such tool and will iterate upon an Android project as a demonstration.
 
 ##How does linting works?
 Linting follows the rules defined in a configuration file like `lint.xml`. Lint tool then runs those rules against the source code files. See the below image for better understanding.
 ![Lint tool](/assets/img/lint.png)
 
 ## Using lint in project
+
+There are two ways to do it, using Android Studio and other using terminal and gradle.
 
 ### Using Android Studio
 There are two ways to run the lint tool on your source code. You can just do it from the toolbar **Analyze > Inspect Code.**. It will then open a dialog where you can specify the scope of the source code on which the lint tool run. Below is an image demonstrating that.
