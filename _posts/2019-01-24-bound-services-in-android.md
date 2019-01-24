@@ -11,8 +11,15 @@
 **Services** is the Android component which is used to perform long-running background tasks. There are other Android components which run in the background too, like Broadcast receiver and JobScheduler, but they are not used for long running tasks. Matter of fact, a broadcast receiver, though runs in the background, need to exit the `onReceive` method within 10 seconds or else Android will kill it. JobScheduler, also runs in the background, is used for batching the background tasks. 
 
 So generally speaking, Services are the components you should go to if you want to keep something running in the background well beyond the lifecycle of the activity.
-Now there are some cases where you would want to run the services for as long as other components want. Let's say you are using a service which generates a random number every few seconds and your activity displays that number. In this case, running a service beyond the activity's life doesn't make sense (as there is no one else to consume the random number). Also, since you need to communicate with the service by asking "Hey, what's the generated random number again?", you need a way to communicate with the service component that runs in the background. Finally, when the activity destroys, you need to dispose of the service so that it's not running in the background indefinitely(or the system destroys it).
-This kind of services, which runs in the background, has an interface with which other components can communicate, and extends up to the time till other components decide otherwise, is known as **bound services**. A very common example of a bound service is a JobService class from the JobScheduler API. The JobService is bound to the system, enabling the system to call its methods like `onStartJob` and is unbound when the job has stopped executing.
+Now there are some cases where you would want to run the services for as long as other components want. Let's say you are using a service which generates a random number every few seconds and your activity displays that number. In this case, running a service beyond the activity's life doesn't make sense (as there is no one else to consume the random number). 
+
+Also, since you need to communicate with the service by asking "Hey, what's the generated random number again?", you need a way to communicate with the service component that runs in the background. 
+
+Finally, when the activity destroys, you need to dispose of the service so that it's not running in the background indefinitely(or the system destroys it).
+
+This kind of services, which runs in the background, has an interface with which other components can communicate, and extends up to the time till other components decide otherwise, is known as **bound services**. 
+
+A very common example of a bound service is a JobService class from the JobScheduler API. The JobService is bound to the system, enabling the system to call its methods like `onStartJob` and is unbound when the job has stopped executing.
 In this post, we will explore bound services using a sample app.
 
 ## The sample app
