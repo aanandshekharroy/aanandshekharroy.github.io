@@ -1,7 +1,7 @@
 ---
   layout: post
   title: "Bound services in Android"
-  date: 2019-01-21
+  date: 2019-01-24
   author: Aanand Shekhar Roy
   cover: '/assets/img/services.jpg'
   tags: Android
