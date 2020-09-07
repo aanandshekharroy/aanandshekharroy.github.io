@@ -1,6 +1,6 @@
 # Site settings 配置站点
 title: 'Aanand Shekhar Roy'
-description: 'Freelance Android/iOS developer, Author of Kotlin Programming Cookbook'
+description: 'Senior Software Engineer @Joist, Author of Kotlin Programming Cookbook'
 keyword: 'Android, Kotlin, iOS'
 url: 'http://www.aanandshekharroy.com' # your host
 
@@ -19,7 +19,7 @@ footer:
 # Author
 author: 'Aanand Shekhar Roy'
 nickname: 'Aanand'
-bio: 'Freelance Android/iOS developer, Author of Kotlin Programming Cookbook'
+bio: 'Senior Software Engineer @Joist, Author of Kotlin Programming Cookbook'
 avatar: '/assets/img/aanandshekharroy.jpg'
 
 # Search
