@@ -3,25 +3,30 @@
 {% include post-head.html %}
 
 <body>
-  <script async type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a74990810fe560012c5e86e&product=sticky-share-buttons"></script>
+  <script async type="text/javascript"
+    src="//platform-api.sharethis.com/js/sharethis.js#property=5a74990810fe560012c5e86e&product=sticky-share-buttons"></script>
   <!--[if lt IE 10]>
 <div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
 <![endif]-->
   <input id="nm-switch" type="hidden" value="{{ site.nightMode }}"> {% include header.html %}
 
-  <header class="g-banner post-header {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }} {% unless page.cover %}post-no-cover{% endunless %}" data-theme="{{ site.theme-color }}">
+  <header
+    class="g-banner post-header {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }} {% unless page.cover %}post-no-cover{% endunless %}"
+    data-theme="{{ site.theme-color }}">
     <div class="post-wrapper">
       <div class="post-tags">
         {% if page.tags.size > 0 %}
-          {% for tag in page.tags  %}
-            <a href="{{ "tags#" | append: tag | absolute_url }}" class="post-tag">{{ tag }}</a>
-          {% endfor %}
+        {% for tag in page.tags  %}
+        <a href="{{ "tags#" | append: tag | absolute_url }}" class="post-tag">{{ tag }}</a>
+        {% endfor %}
         {% endif %}
       </div>
       <h1>{{ page.title }}</h1>
       <div class="post-meta">
-        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="{{ site.url }}" target="_blank" rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a></></span>
-        <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="{{ site.url }}" target="_blank"
+            rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a></></span>
+        <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i
+            class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
       </div>
     </div>
     {% if page.cover %}
@@ -50,6 +55,26 @@
         </h4>
       </div> -->
       <!-- <iframe style="height:400px;width:100%;max-width:800px;margin:30px auto;" src="https://upscri.be/42a5c9?as_embed"></iframe> -->
+      <!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://aanandshekharroy.us17.list-manage.com/subscribe/post?u=1acccac9010f87d1e246706ae&amp;id=7786f130cb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Enjoyed reading this article? Join the mailing list and I'll send you my latest pieces.</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1acccac9010f87d1e246706ae_7786f130cb" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
     </article>
   </div>
 
@@ -60,8 +85,8 @@
       </div>
       <div class="author-name" rel="author">{{ site.author }}</div>
       <div class="bio">
-        <a href="https://twitter.com/aanand_shekhar?ref_src=twsrc%5Etfw"
-        class="twitter-follow-button" data-size="large" data-show-count="false">Follow @aanand_shekhar</a>
+        <a href="https://twitter.com/aanand_shekhar?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+          data-show-count="false">Follow @aanand_shekhar</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <p>{{ site.bio }}</p>
       </div>
@@ -70,8 +95,8 @@
         {% for s in site.sns %}
         <li>
           <a href="{{ s[1] }}" target="_blank">
-                    <i class="iconfont icon-{{ s[0] }}"></i>
-                </a>
+            <i class="iconfont icon-{{ s[0] }}"></i>
+          </a>
         </li>
         {% endfor %}
       </ul>
@@ -89,20 +114,20 @@
         <div class="filter"></div>
         <img src="{{ page.next.cover }}" alt="">
         {% endif %}
-     </div>
+      </div>
       {% endif %}
 
       {% if page.previous.url %}
       <div class="read-next-item">
         <a href="{{ page.previous.url }}" class="read-next-link"></a>
-          <section>
-            <span>{{ page.previous.title }}</span>
-            <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
-          </section>
-          {% if page.previous.cover %}
-          <div class="filter"></div>
-          <img src="{{ page.previous.cover }}" alt="">
-          {% endif %}
+        <section>
+          <span>{{ page.previous.title }}</span>
+          <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+        </section>
+        {% if page.previous.cover %}
+        <div class="filter"></div>
+        <img src="{{ page.previous.cover }}" alt="">
+        {% endif %}
       </div>
       {% endif %}
     </section>
@@ -123,7 +148,7 @@
   {% include footer.html %}
 
 
-{% if site.disqus %}
+  {% if site.disqus %}
   <script>
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -134,7 +159,7 @@
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     */
-    (function() { // DON'T EDIT BELOW THIS LINE
+    (function () { // DON'T EDIT BELOW THIS LINE
       var d = document,
         s = d.createElement('script');
       /*写入自己的disqus信息*/
@@ -143,8 +168,8 @@
       (d.head || d.body).appendChild(s);
     })();
 
-</script>
-{% endif %}
+  </script>
+  {% endif %}
 
   <noscript>为正常使用评论功能请激活JavaScript。</noscript>
   <script src="/assets/js/prism.js"></script>
