@@ -11,17 +11,20 @@
 
 Building a data-driven product is not an unusual idea these days. Building a product using data is in itself a pretty big challenge, but what if the most important tool we are using, on which our entire strategy is based, in itself crooked? Seems unlikely? Think again. 
 
-In this article, I’ll explain, with the help of certain examples, that there is more than it meets the eye with data, and how simple biases (direct, or indirect), can muddy the sample, which in turn can ruin any inference that you might be making.
+In this article, I’ll try to explain, with the help of certain examples, that there is more than it meets the eye with data, and how simple biases (direct, or indirect), can muddy the sample, which in turn can ruin any inference that you might be making.
 
+# The Literary Digest fiasco
 
 Let’s look at a very famous example, which also marked the beginning of the demise of popular magazine *The Literary Digest*.
 It had 10 million telephone and digest subscribers, who concluded that in the presidential election of 1936, the Republican candidate, Governor Alfred Landon of Kansas, was likely to be the overwhelming winner, against the incumbent Franklin D. Roosevelt.
 
-The power of statistics is that the inferences made from reasonably large, carefully drawn samples, could be *as accurate* as the same information drawn from the entire population.
+**The power of statistics is that the inferences made from reasonably large, carefully drawn samples, could be *as accurate* as the same information drawn from the entire population.**
 
 You’d think that in the case of the magazine, the sample is humongous, so the inference, in this case, who-will-be-the-winner, should be accurate. Right? Wrong.
 
 It was Franklin D. Roosevelt who came on top in that election. So why did this data fail?
+
+## Why did it fail?
 
 The ‘autopsy’ done later by a lot of thesis on this issue found the reasons.
 
@@ -72,6 +75,8 @@ Example? Read this from The New York Times’s article [Antidepressant Studies U
 
 There are a lot of different kinds of biases. In fact there is a [catalog of biases](https://catalogofbias.org/biases/). 
 
+# Takeaway
+
 Once you know which kind of bias may be present, you can work on fixing the problem. A simple example would be, If you do door-to-door research, where your sample might be biased against employed people, you can visit them at different times, on weekends, etc where you might find the people that were generally missing from the dataset you first created.
 
 
@@ -89,7 +94,7 @@ By now, you should start appreciating these facts:
 If you have a truly random sample, then it’s a very good chance that it is representative of the population you are targeting. But it’s easier said than done as we have seen in the above example. The test of the random sample is very simple.
 
 
-Does everyone in the group have equal chance to be in the sample? 
+*Does everyone in the group have equal chance to be in the sample?*
 
 ---
 Resources:
