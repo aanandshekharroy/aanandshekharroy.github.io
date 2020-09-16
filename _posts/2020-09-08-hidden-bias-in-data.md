@@ -107,4 +107,4 @@ Resources:
 
 [NYTimes article Antidepressant Studies Unpublished](https://www.nytimes.com/2008/01/17/health/17depress.html)
 
-[Wikipaedia on The Literary Digest](https://en.wikipedia.org/wiki/The_Literary_Digest)
+[Wikipedia on The Literary Digest](https://en.wikipedia.org/wiki/The_Literary_Digest)
